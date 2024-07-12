@@ -91,6 +91,10 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
     data.push({ ...obj, id: hashCode(JSON.stringify(obj)) });
   }
 
+  if (!n) {
+    return resp.status(200).json(data);
+  }
+
   if (price || discount || rating) {
     data = data.sort((a, b) => {
       let prop = "";
@@ -109,10 +113,6 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
 
       return 0;
     });
-  }
-
-  if (!n) {
-    return resp.status(200).json(data);
   }
 
   if (n < 10) {

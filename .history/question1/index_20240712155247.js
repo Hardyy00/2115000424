@@ -33,7 +33,7 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
   };
 
   let res = await fetch(
-    `http://20.244.56.144/test/companies/AMZ/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/AMZ/categories/${name}/products?top=10`,
     { headers }
   );
 
@@ -42,28 +42,28 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
   console.log(d1);
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/FLP/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/FLP/categories/${name}/products?top=10`,
     { headers }
   );
 
   const d2 = await res.json();
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/SNP/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/SNP/categories/${name}/products?top=10`,
     { headers }
   );
 
   const d3 = await res.json();
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/MYN/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/MYN/categories/${name}/products?top=10`,
     { headers }
   );
 
   const d4 = await res.json();
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/AZO/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/AZO/categories/${name}/products?top=10`,
     { headers }
   );
 
@@ -102,21 +102,11 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
       } else {
         prop = "rating";
       }
-
-      if (a[prop] > b[prop]) {
-        return 1;
-      }
-
-      return 0;
     });
   }
 
-  if (!n) {
-    return resp.status(200).json(data);
-  }
-
   if (n < 10) {
-    const seg = data.slice(0, Math.min(n, data.length));
+    const seg = data.slice(0, n);
 
     return res.status(200).json(seg);
   }
@@ -137,7 +127,7 @@ app.get("/categories/:categoryname/products/:productid", async (req, resp) => {
   };
 
   let res = await fetch(
-    `http://20.244.56.144/test/companies/AMZ/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/AMZ/categories/${name}/products?top=10`,
     { headers }
   );
 
@@ -163,7 +153,7 @@ app.get("/categories/:categoryname/products/:productid", async (req, resp) => {
   }
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/SNP/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/SNP/categories/${name}/products?top=10`,
     { headers }
   );
 
@@ -176,7 +166,7 @@ app.get("/categories/:categoryname/products/:productid", async (req, resp) => {
   }
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/MYN/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/MYN/categories/${name}/products?top=10`,
     { headers }
   );
 
@@ -189,7 +179,7 @@ app.get("/categories/:categoryname/products/:productid", async (req, resp) => {
   }
 
   res = await fetch(
-    `http://20.244.56.144/test/companies/AZO/categories/${name}/products`,
+    `http://20.244.56.144/test/companies/AZO/categories/${name}/products?top=10`,
     { headers }
   );
 

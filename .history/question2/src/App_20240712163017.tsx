@@ -49,24 +49,7 @@ function App() {
       </section>
 
       <section>
-        {data ? (
-          data.map((item, idx) => (
-            <div key={idx} className="flex flex-col">
-              <div className="w-[50%] relative">
-                <img
-                  src={"https://api.api-ninjas.com/v1/randomimage"}
-                  className="w-full h-full"
-                />
-              </div>
-
-              <div>
-                <h2>{item.name}</h2>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
+        <div className="grid grid-cols-3 gap-4"></div>
       </section>
     </main>
   );

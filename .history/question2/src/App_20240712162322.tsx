@@ -8,19 +8,12 @@ function App() {
 
   const [data, setData] = useState<[] | null>(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      setData(null);
-      const res = await fetch(
-        `http://localhost:8080/categories/Laptop/products?page=${currentPage}&${filter}=true`
-      );
+  useEffect(() =>{
 
-      const data = await res.json();
-      setData(data);
-    };
+  const prods = [http://localhost:8080/categories/Laptop/products?n=6&page=1]
 
-    getData();
-  }, [currentPage, filter]);
+
+  });
 
   return (
     <main className="w-full h-full space-y-4">
@@ -46,27 +39,6 @@ function App() {
             </Select>
           </FormControl>
         </div>
-      </section>
-
-      <section>
-        {data ? (
-          data.map((item, idx) => (
-            <div key={idx} className="flex flex-col">
-              <div className="w-[50%] relative">
-                <img
-                  src={"https://api.api-ninjas.com/v1/randomimage"}
-                  className="w-full h-full"
-                />
-              </div>
-
-              <div>
-                <h2>{item.name}</h2>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
       </section>
     </main>
   );

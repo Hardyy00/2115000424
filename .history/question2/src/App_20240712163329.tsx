@@ -58,10 +58,6 @@ function App() {
                   className="w-full h-full"
                 />
               </div>
-
-              <div>
-                <h2>{item.name}</h2>
-              </div>
             </div>
           ))
         ) : (

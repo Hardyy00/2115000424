@@ -111,12 +111,8 @@ app.get("/categories/:categoryname/products", async (req, resp) => {
     });
   }
 
-  if (!n) {
-    return resp.status(200).json(data);
-  }
-
   if (n < 10) {
-    const seg = data.slice(0, Math.min(n, data.length));
+    const seg = data.slice(0, n);
 
     return res.status(200).json(seg);
   }

@@ -53,14 +53,7 @@ function App() {
           data.map((item, idx) => (
             <div key={idx} className="flex flex-col">
               <div className="w-[50%] relative">
-                <img
-                  src={"https://api.api-ninjas.com/v1/randomimage"}
-                  className="w-full h-full"
-                />
-              </div>
-
-              <div>
-                <h2>{item.name}</h2>
+                <img src={} className="w-full h-full" />
               </div>
             </div>
           ))
