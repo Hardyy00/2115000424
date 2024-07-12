@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { createBrowserRouter, Link } from "react-router-dom";
-import ProductItem from "./components/ProductItem";
 
 interface Item {
   id: string | number;
@@ -11,11 +9,6 @@ interface Item {
   rating: number | string;
   discount: number | string;
 }
-
-export const routes = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: "/:id/:cat", element: <ProductItem /> },
-]);
 
 function App() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -66,36 +59,25 @@ function App() {
       <section>
         {data ? (
           data.map((item: Item, idx) => (
-            <Link to={`/${item.id}/${filter}`}>
-              <div key={idx} className="flex flex-col">
-                <div className="w-[50%] relative">
-                  <img
-                    src={"https://api.api-ninjas.com/v1/randomimage"}
-                    className="w-full h-full"
-                  />
-                </div>
-
-                <div>
-                  <h2>{item.productName}</h2>
-                  <h2>{item.price}</h2>
-                  <h2>{item.rating}</h2>
-                  <h2>{item.discount}</h2>
-                </div>
+            <div key={idx} className="flex flex-col">
+              <div className="w-[50%] relative">
+                <img
+                  src={"https://api.api-ninjas.com/v1/randomimage"}
+                  className="w-full h-full"
+                />
               </div>
-            </Link>
+
+              <div>
+                <h2>{item.productName}</h2>
+                <h2>{item.price}</h2>
+                <h2>{item.rating}</h2>
+                <h2>{item.discount}</h2>
+              </div>
+            </div>
           ))
         ) : (
           <p>Loading...</p>
         )}
-      </section>
-
-      <section>
-        <div className="flex items-center gap-x-4">
-          <button onClick={() => setCurrentPage((pre) => pre - 1)}>
-            Previous
-          </button>
-          <button onClick={() => setCurrentPage((pre) => pre + 1)}>Next</button>
-        </div>
       </section>
     </main>
   );

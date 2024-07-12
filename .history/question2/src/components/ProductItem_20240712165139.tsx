@@ -21,16 +21,10 @@ const ProductItem = () => {
     <div>
       <img src={"https://api.api-ninjas.com/v1/randomimage"} />
       <div>
-        {obj ? (
-          <>
-            <h2>{obj.productName}</h2>
-            <h2>{obj.price}</h2>
-            <h2>{obj.rating}</h2>
-            <h2>{obj.discount}</h2>{" "}
-          </>
-        ) : (
-          <p>Loading</p>
-        )}
+        <h2>{item.productName}</h2>
+        <h2>{item.price}</h2>
+        <h2>{item.rating}</h2>
+        <h2>{item.discount}</h2>
       </div>
     </div>
   );

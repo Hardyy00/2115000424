@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { createBrowserRouter, Link } from "react-router-dom";
-import ProductItem from "./components/ProductItem";
+import { Link } from "react-router-dom";
 
 interface Item {
   id: string | number;
@@ -11,11 +10,6 @@ interface Item {
   rating: number | string;
   discount: number | string;
 }
-
-export const routes = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: "/:id/:cat", element: <ProductItem /> },
-]);
 
 function App() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -66,7 +60,7 @@ function App() {
       <section>
         {data ? (
           data.map((item: Item, idx) => (
-            <Link to={`/${item.id}/${filter}`}>
+            <Link to={`/${item.id}`}>
               <div key={idx} className="flex flex-col">
                 <div className="w-[50%] relative">
                   <img

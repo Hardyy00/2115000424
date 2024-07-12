@@ -17,23 +17,7 @@ const ProductItem = () => {
 
     getProduct();
   }, [obj]);
-  return (
-    <div>
-      <img src={"https://api.api-ninjas.com/v1/randomimage"} />
-      <div>
-        {obj ? (
-          <>
-            <h2>{obj.productName}</h2>
-            <h2>{obj.price}</h2>
-            <h2>{obj.rating}</h2>
-            <h2>{obj.discount}</h2>{" "}
-          </>
-        ) : (
-          <p>Loading</p>
-        )}
-      </div>
-    </div>
-  );
+  return <div>Product Item</div>;
 };
 
 export default ProductItem;

@@ -14,7 +14,7 @@ interface Item {
 
 export const routes = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/:id/:cat", element: <ProductItem /> },
+  { path: "/:id", element: <ProductItem /> },
 ]);
 
 function App() {

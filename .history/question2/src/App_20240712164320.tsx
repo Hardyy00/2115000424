@@ -14,7 +14,7 @@ interface Item {
 
 export const routes = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/:id/:cat", element: <ProductItem /> },
+  { path: "/:id", element: <ProductItem /> },
 ]);
 
 function App() {
@@ -66,7 +66,7 @@ function App() {
       <section>
         {data ? (
           data.map((item: Item, idx) => (
-            <Link to={`/${item.id}/${filter}`}>
+            <Link to={`/${item.id}`}>
               <div key={idx} className="flex flex-col">
                 <div className="w-[50%] relative">
                   <img
